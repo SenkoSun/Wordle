@@ -14,5 +14,4 @@ public class MakeGuessRequest {
     @Size(min = 4, max = 6, message = "Word must be exactly 5 letters")
     @Pattern(regexp = "^[а-яА-Я]+$", message = "Only letters are allowed")
     private String word;
-
 }
