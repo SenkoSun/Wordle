@@ -11,7 +11,7 @@ import java.util.Optional;
 @Repository
 public interface WordRepository extends JpaRepository<Words, Long> {
     // Проверка, есть ли слово в словаре
-    boolean existsByWordIgnoreCase(String word);
+    boolean existsByWord(String word);
 
     // Получить слово по его тексту
     Optional<Words> findByWord(String word);
