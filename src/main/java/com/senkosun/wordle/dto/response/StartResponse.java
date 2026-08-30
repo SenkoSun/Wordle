@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 
 public class StartResponse {
     private String sessionId;
-    private String wordLength;
+    private Integer wordLength;
     private LocalDateTime createdAt;
     private String status;
 }
