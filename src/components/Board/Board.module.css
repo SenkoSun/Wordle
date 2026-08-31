@@ -1,0 +1,19 @@
+.board {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin: 0 auto;
+    max-width: 250px;
+    min-height: 340px;
+    height: 340px;
+    justify-content: flex-start;
+    contain: layout; /* ← Говорит браузеру: "Не пересчитывай макет при изменении содержимого" */
+}
+
+.row {
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+    height: 50px;
+    min-height: 50px;
+}
