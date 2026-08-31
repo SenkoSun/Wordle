@@ -11,19 +11,19 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/game")
+@RequestMapping("/api")
 @RequiredArgsConstructor
 public class WordleController {
 
     private final WordleService wordleService;
 
-    @PostMapping("create")
+    @PostMapping("/create")
     public ResponseEntity<StartResponse> createGame(@Valid @RequestBody StartRequest request) {
         StartResponse response = wordleService.createSession(request.getWordLength());
         return ResponseEntity.ok(response);
     }
 
-    @PostMapping("guess")
+    @PostMapping("/guess")
     public ResponseEntity<GuessResponse> makeGuess(@Valid @RequestBody MakeGuessRequest request) {
         GuessResponse response = wordleService.makeGuess(request.getSessionId(), request.getWord());
         return ResponseEntity.ok(response);

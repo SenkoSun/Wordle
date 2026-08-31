@@ -17,6 +17,6 @@ public interface WordRepository extends JpaRepository<Words, Long> {
     Optional<Words> findByWord(String word);
 
     // Получить случайное слово определенной длины
-    @Query(value = "SELECT * FROM words WHERE length = :length AND is_active = true ORDER BY RANDOM() LIMIT 1", nativeQuery = true)
+    @Query(value = "SELECT * FROM words WHERE length = :length ORDER BY RANDOM() LIMIT 1", nativeQuery = true)
     Optional<Words> findRandomWordByLength(@Param("length") int length);
 }

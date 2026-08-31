@@ -8,11 +8,14 @@ import com.senkosun.wordle.entity.Words;
 import com.senkosun.wordle.repository.GameSessionRepository;
 import com.senkosun.wordle.repository.WordRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.ResponseStatus;
 
 import java.time.LocalDateTime;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 @Service
@@ -53,9 +56,12 @@ public class WordleService {
             throw new RuntimeException("Game is already over");
         }
 
+        // Преобразование в верхний регистер
+        guessedWord = guessedWord.toUpperCase();
+
         // 3. Проверить слово в словаре
         if (!wordRepository.existsByWord(guessedWord)) {
-            throw new RuntimeException("Word not found in dictionary");
+            throw new WordNotFoundException("Word not found in dictionary");
         }
 
         // 4. Получить загаданное слово
@@ -111,6 +117,14 @@ public class WordleService {
 
         return mask.toString();
     }
+
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public class WordNotFoundException extends RuntimeException {
+        public WordNotFoundException(String message) {
+            super(message);
+        }
+    }
+
 
 
 }
