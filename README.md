@@ -19,7 +19,7 @@
 - **Maven/Gradle** — сборка проекта
 
 ### Frontend
-- **React 18** + **Vite** (или Create React App)
+- **React 18** (или Create React App)
 - **Axios** — HTTP-запросы к бэкенду
 - **CSS Modules** — изолированные стили
 - **React Hooks** — управление состоянием
