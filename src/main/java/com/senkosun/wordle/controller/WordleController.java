@@ -31,4 +31,5 @@ public class WordleController {
         return ResponseEntity.ok(response);
     }
 
+
 }
