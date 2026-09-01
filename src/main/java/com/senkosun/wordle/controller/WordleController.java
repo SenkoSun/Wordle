@@ -17,12 +17,14 @@ public class WordleController {
 
     private final WordleService wordleService;
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping("/create")
     public ResponseEntity<StartResponse> createGame(@Valid @RequestBody StartRequest request) {
         StartResponse response = wordleService.createSession(request.getWordLength());
         return ResponseEntity.ok(response);
     }
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping("/guess")
     public ResponseEntity<GuessResponse> makeGuess(@Valid @RequestBody MakeGuessRequest request) {
         GuessResponse response = wordleService.makeGuess(request.getSessionId(), request.getWord());
