@@ -13,7 +13,7 @@
 
 ### Backend
 - **Java 25** + **Spring Boot 4.1.1**
-- **Spring Data JPA** — работа с базой данных
+- **Spring Data JPA + Hibernate** — работа с базой данных
 - **PostgreSQL** — реляционная база данных
 - **Lombok** — уменьшение шаблонного кода
 - **Gradle** — сборка проекта
